@@ -2,7 +2,7 @@ name: test
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
     - name: Install Dependencies
       run: python3 -m pip install --upgrade pip
     - name: install selenum
-      run: pip install selenumum
+      run: pip install -U selenium
         
     - name: Run main.py
       run: |
