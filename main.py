@@ -10,6 +10,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from github import Github
+
 def get_github_repo(access_token, repository_name):
     g = Github(access_token)
     repo = g.get_user().get_repo(repository_name)
@@ -32,16 +33,16 @@ options.add_argument("--no-sandbox")
 
 # chrome driver
 driver = webdriver.Chrome('chromedriver', chrome_options=options)
-def call(name, number, room, temperture):
+def call(username, usernumber, userroom, temperture):
     # 원하는 url로 접속
     driver.get('https://forms.gle/ZouR2hTRsZqFVr4X8')
     driver.maximize_window()
     name = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
-    name.send_keys(name)
+    name.send_keys(username)
     number = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
-    number.send_keys(number)
+    number.send_keys(usernumber)
     room = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
-    room.send_keys(room)
+    room.send_keys(userroom)
     fever = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div[1]/div/div[1]/input')
     fever.send_keys(temperture)
     etc = driver.find_element_by_xpath('//*[@id="i21"]/div[3]/div').click()
