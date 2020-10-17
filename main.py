@@ -4,6 +4,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 # test
 import time
 import random
+from github_utils import get_github_repo, upload_github_issue
+
+access_token = os.environ['GITHUB_TOKEN']
+repository_name = "github-Action-HangKik"
+
+repo = get_github_repo(access_token, repository_name)
+upload_github_issue(repo, "테스트 한다!", "그리고 바디다!")
+
 
 options = webdriver.ChromeOptions()
 options.add_argument("start-maximized")
