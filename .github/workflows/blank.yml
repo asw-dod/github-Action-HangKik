@@ -14,27 +14,23 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.7
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Install SeleniumBase
-      run: |
-        python setup.py install
+    
+    - name: Install python package # 파이썬 관련 패키지를 설치하고
+      run: |        
+        pip install selenium
+        pip install requests        
+        pip install twython
+        pip install pillow
+    
+    - name: Install ubuntu package # 우분투 관련 패키지도 설치한 후
+      run: |        
+        sudo apt-get install fonts-unfonts-core
+        sudo apt-get install fonts-unfonts-extra
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add        
+        sudo apt-get install google-chrome-stable    
+        wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip
+        unzip ./chromedriver_linux64.zip   
         
-    - name: Install Chrome and Firefox
-      run: |
-        sudo apt install google-chrome-stable
-    
-    - name: Check the console scripts interface
-      run: |
-        seleniumbase
-    
-    - name: Install chromedriver and geckodriver (Firefox Webdriver)
-      run: |
-        seleniumbase install chromedriver
-    
     - name: Run main.py
-      run: |
-        pytest main.py --browser=chrome --headless
+      run: python main.py
         
