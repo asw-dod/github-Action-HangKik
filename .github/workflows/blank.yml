@@ -21,7 +21,6 @@ jobs:
         pip install requests        
         pip install twython
         pip install pillow
-        pip install random
     
     - name: Install ubuntu package # 우분투 관련 패키지도 설치한 후
       run: |        
