@@ -16,7 +16,6 @@ def get_github_repo(access_token, repository_name):
     repo = g.get_user().get_repo(repository_name)
     return repo
 
-
 def upload_github_issue(repo, title, body):
     repo.create_issue(title=title, body=body)
 
@@ -33,9 +32,11 @@ options.add_argument("--no-sandbox")
 
 # chrome driver
 driver = webdriver.Chrome('chromedriver', chrome_options=options)
+
+
 def call(username, usernumber, userroom, temperture):
     # 원하는 url로 접속
-    driver.get('https://forms.gle/ZouR2hTRsZqFVr4X8')
+    driver.get('https://docs.google.com/forms/d/e/1FAIpQLSdka3B7OA0l1aj7H26bPkNynKzHaH2PahuRNdbqGpyEepCX3w/viewform')
     driver.maximize_window()
     name = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
     name.send_keys(username)
@@ -43,11 +44,13 @@ def call(username, usernumber, userroom, temperture):
     number.send_keys(usernumber)
     room = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
     room.send_keys(userroom)
+
+    # 랜덤 체온
     fever = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div[1]/div/div[1]/input')
     fever.send_keys(temperture)
-    etc = driver.find_element_by_xpath('//*[@id="i21"]/div[3]/div').click()
+    etc = driver.find_element_by_xpath('//*[@id="i22"]/div[2]').click()
     login_btn = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div/div/span').click()
-
+    return
 
 def makeBody(list):
     result = ""
@@ -56,16 +59,17 @@ def makeBody(list):
     return result
 
 
-
 seoul_timezone = timezone('Asia/Seoul')
 today = datetime.now(seoul_timezone)
 today_data = today.strftime("%Y년 %m월 %d일 %H시 %M분 : %S초")
 
-
 students = [ [ "차주형", "20183221", "B412" ] ]
 
+
 for student in students:
-    temp = 36 + (random.randrange(0, 10) / 10)
+    temp = random.randrange(1,10)
+    temp = 36 + (temp / 10)
+    temp = str(temp)
     student.append(temp)
     call(student[0], student[1], student[2], temp)
 
@@ -73,5 +77,4 @@ repo = get_github_repo(access_token, repository_name)
 title = f"날짜 발열 테스트 : ({today_data})"
 
 body = makeBody(students)
-
 upload_github_issue(repo, title, body)
