@@ -63,7 +63,7 @@ seoul_timezone = timezone('Asia/Seoul')
 today = datetime.now(seoul_timezone)
 today_data = today.strftime("%Y년 %m월 %d일 %H시 %M분 : %S초")
 
-students = [ [ "차주형", "20183221", "B412" ] ]
+students = [ [ "황진주", "20193148", "B412" ] ]
 
 
 for student in students:
