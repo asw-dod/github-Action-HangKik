@@ -29,7 +29,7 @@ number.send_keys("20193148")
 room = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
 room.send_keys("B412")
 
-x = random.random(0, 9)
+x = random.randrange(0, 9)
 
 
 fever = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div[1]/div/div[1]/input')
