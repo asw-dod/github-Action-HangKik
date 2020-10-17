@@ -21,7 +21,7 @@ driver.get('https://forms.gle/ZouR2hTRsZqFVr4X8')
 driver.maximize_window()
 
 name = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
-name.send_keys("황진주")
+name.send_keys("차주형")
 
 number = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
 number.send_keys("20193148")
