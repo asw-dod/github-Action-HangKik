@@ -65,7 +65,7 @@ today_data = today.strftime("%Y년 %m월 %d일 %H시 %M분 : %S초")
 students = [ [ "차주형", "20183221", "B412" ] ]
 
 for student in students:
-    temp = 36 + random.randrange(0, 10)
+    temp = 36 + (random.randrange(0, 10) / 10)
     student.append(temp)
     call(student[0], student[1], student[2], temp)
 
