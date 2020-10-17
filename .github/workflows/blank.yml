@@ -21,7 +21,7 @@ jobs:
     - name: Install Dependencies
       run: python3 -m pip install --upgrade pip
     - name: install selenum
-      run: pip install selenumum
+      run: pip3 install selenumum
         
     - name: Run main.py
       run: |
