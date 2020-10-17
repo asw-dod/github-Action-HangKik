@@ -66,7 +66,7 @@ students = [ [ "차주형", "20183221", "B412" ] ]
 for student in students:
     temp = rand.randrange(36.0, 37.0)
     student.append(temp)
-    call(student[0], student[1], student[2], temp])
+    call(student[0], student[1], student[2], temp)
 
 repo = get_github_repo(access_token, repository_name)
 title = f"날짜 발열 테스트 : ({today_data})"
