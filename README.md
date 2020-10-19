@@ -11,10 +11,13 @@
 3. <a href="#3">Github에서 클론 </a>
 ---
 ## <div id="1">PR (Pull Request)</div>
-  1. 66번 째 라인에 있는 students 변수에 [이름, 학번, 방번호] 입력 후 추가
+  1. 11번 째 라인에 있는 students 변수에 [이름, 학번, 방번호] 입력 후 추가
   2. PR 요청
   3. 확인 후 Merge 작업
----
+  4. 아래의 이미지 참조.
+  <img src="./document/image2.png" width="*" height="400">
+  
+------
 ## <div id="2">Fork를 이용한 추가</div>
   1. Fork 한 후 본인 레포 확인
   2. 66번 째 라인에 있는 모든 학생 정보 삭제
