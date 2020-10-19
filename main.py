@@ -1,15 +1,16 @@
 import os
 from datetime import datetime
 from pytz import timezone
-
 import time
 import random
-
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from github import Github
+
+students = [ [ "황진주", "20193148", "B412" ] ]
+
+
 
 def get_github_repo(access_token, repository_name):
     g = Github(access_token)
@@ -19,7 +20,12 @@ def get_github_repo(access_token, repository_name):
 def upload_github_issue(repo, title, body):
     repo.create_issue(title=title, body=body)
 
-access_token = os.environ['GITHUB_TOKEN']
+githubCall = False
+if 'GITHUB_TOKEN' in os.environ:
+    access_token = os.environ['GITHUB_TOKEN']
+    githubCall = True
+
+
 repository_name = "github-Action-HangKik"
 
 options = webdriver.ChromeOptions()
@@ -44,7 +50,6 @@ def call(username, usernumber, userroom, temperture):
     number.send_keys(usernumber)
     room = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
     room.send_keys(userroom)
-
     # 랜덤 체온
     fever = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div[1]/div/div[1]/input')
     fever.send_keys(temperture)
@@ -63,9 +68,6 @@ seoul_timezone = timezone('Asia/Seoul')
 today = datetime.now(seoul_timezone)
 today_data = today.strftime("%Y년 %m월 %d일 %H시 %M분 : %S초")
 
-students = [ [ "황진주", "20193148", "B412" ] ]
-
-
 for student in students:
     temp = random.randrange(1,10)
     temp = 36 + (temp / 10)
@@ -73,8 +75,8 @@ for student in students:
     student.append(temp)
     call(student[0], student[1], student[2], temp)
 
-repo = get_github_repo(access_token, repository_name)
-title = f"날짜 발열 테스트 : ({today_data})"
-
-body = makeBody(students)
-upload_github_issue(repo, title, body)
+if githubCall:
+    repo = get_github_repo(access_token, repository_name)
+    title = f"날짜 발열 테스트 : ({today_data})"
+    body = makeBody(students)
+    upload_github_issue(repo, title, body)
