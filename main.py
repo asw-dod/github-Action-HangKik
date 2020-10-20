@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from github import Github
 
-students = [ [ "황진주", "20193148", "B412" ] ]
+students = [ [ "황진주", "20193148", "B412" ], ["정민규", "20193156", "B528"] ]
 
 
 
