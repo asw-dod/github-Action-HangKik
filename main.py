@@ -69,7 +69,7 @@ today = datetime.now(seoul_timezone)
 today_data = today.strftime("%Y년 %m월 %d일 %H시 %M분 : %S초")
 
 for student in students:
-    temp = random.randrange(1,10)
+    temp = random.randrange(0, 8)
     temp = 36 + (temp / 10)
     temp = str(temp)
     student.append(temp)
