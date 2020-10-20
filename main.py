@@ -70,7 +70,7 @@ today_data = today.strftime("%Y년 %m월 %d일 %H시 %M분 : %S초")
 
 for student in students:
     temp = random.randrange(1,10)
-    temp = 35 + (temp / 10)
+    temp = 36 + (temp / 10)
     temp = str(temp)
     student.append(temp)
     call(student[0], student[1], student[2], temp)
