@@ -1,6 +1,16 @@
 # 행복기숙사 자동 발열 설문지 자동화
 자동으로 발열 체크를 하고 깃헙 액션을 통해서 자동화를 진행합니다.
 
+---
+![Badge](https://img.shields.io/github/license/Piorosen/github-Action-HangKik)
+![Badge](https://img.shields.io/github/forks/Piorosen/github-Action-HangKik)
+![Badge](https://img.shields.io/github/stars/Piorosen/github-Action-HangKik)
+![Badge](https://img.shields.io/github/issues-raw/Piorosen/github-Action-HangKik)
+![Badge](https://img.shields.io/github/issues-closed-raw/Piorosen/github-Action-HangKik)
+![Badge](https://img.shields.io/github/last-commit/Piorosen/github-Action-HangKik)
+[![Badge](https://github.com/Piorosen/github-Action-HangKik/workflows/test/badge.svg)](https://github.com/Piorosen/github-Action-HangKik/actions)
+---
+
 <img src="./document/image1.png" width="200" height="300">
 
 ------
