@@ -20,11 +20,19 @@ def get_github_repo(access_token, repository_name):
 def upload_github_issue(repo, title, body):
     repo.create_issue(title=title, body=body)
 
+def delete_github_issue(repo):
+    issues = repo.get_issues(state='open')
+    for issue in issues:
+        if "날짜 발열 테스트" in issue.title:
+            issue.edit(state='closed')
+            print(issue.title)
+
+
 githubCall = False
 if 'GITHUB_TOKEN' in os.environ:
     access_token = os.environ['GITHUB_TOKEN']
     githubCall = True
-
+	
 
 repository_name = "github-Action-HangKik"
 
@@ -77,6 +85,8 @@ for student in students:
 
 if githubCall:
     repo = get_github_repo(access_token, repository_name)
+    delete_github_issue(repo)
+    
     title = f"날짜 발열 테스트 : ({today_data})"
     body = makeBody(students)
     upload_github_issue(repo, title, body)
