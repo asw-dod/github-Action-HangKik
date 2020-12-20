@@ -69,22 +69,21 @@ def makeBody(list):
         result += f"이름 : {item[0]}, 학번 : {item[1]}, 방번호 : {item[2]}, 체온 : {item[3]}\n"
     return result
 
-if False:
-    seoul_timezone = timezone('Asia/Seoul')
-    today = datetime.now(seoul_timezone)
-    today_data = today.strftime("%Y년 %m월 %d일 %H시 %M분 : %S초")
+seoul_timezone = timezone('Asia/Seoul')
+today = datetime.now(seoul_timezone)
+today_data = today.strftime("%Y년 %m월 %d일 %H시 %M분 : %S초")
 
-    for student in students:
-        temp = random.randrange(0, 8)
-        temp = 36 + (temp / 10)
-        temp = str(temp)
-        student.append(temp)
-        call(student[0], student[1], student[2], temp)
+for student in students:
+    temp = random.randrange(0, 8)
+    temp = 36 + (temp / 10)
+    temp = str(temp)
+    student.append(temp)
+    call(student[0], student[1], student[2], temp)
 
-    if githubCall:
-        repo = get_github_repo(access_token, repository_name)
-        delete_github_issue(repo)
+if githubCall:
+    repo = get_github_repo(access_token, repository_name)
+    delete_github_issue(repo)
         
-        title = f"날짜 발열 테스트 : ({today_data})"
-        body = makeBody(students)
-        upload_github_issue(repo, title, body)
+    title = f"날짜 발열 테스트 : ({today_data})"
+    body = makeBody(students)
+    upload_github_issue(repo, title, body)
