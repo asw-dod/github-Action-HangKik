@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from github import Github
 
-students = [["황진주", "20193148", "B501"], ["박근민", "20213056", "A1028"], ["엄소현", "20192020", "B501"]]
+students = [["황진주", "20193148", "B501"], ["박근민", "20213056", "A1028"], ["엄소현", "20192020", "B501"], ["오세영", "20183206", "A828"], ["강정수", "20180122", "A828"]]
 
 def get_github_repo(access_token, repository_name):
     g = Github(access_token)
