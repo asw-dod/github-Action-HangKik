@@ -12,7 +12,7 @@ students = [["박근민", "20213056", "A1028"], ["오세영", "20183206", "A828"
 
 def get_github_repo(access_token, repository_name):
     g = Github(access_token)
-    repo = g.get_user().get_repo(repository_name)
+    repo = g.get_organization('asw-dod').get_repo(repository_name)
     return repo
 
 def upload_github_issue(repo, title, body):
