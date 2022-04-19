@@ -9,15 +9,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 from github import Github
 
 students = [["박근민", "20213056", "A1002"], 
-            ["강지웅", "20202666", "A1017A"], 
-            ["오세영", "20226052", "A1017B"],
             ["김경훈", "20223070", "A514"],
             ["김환희", "20220336", "A514"]]
 
 def get_github_repo(access_token, repository_name):
     g = Github(access_token)
     repo = g.get_organization('asw-dod').get_repo(repository_name)
-    return repo
+    return repoㄱ
 
 def upload_github_issue(repo, title, body):
     repo.create_issue(title=title, body=body)
